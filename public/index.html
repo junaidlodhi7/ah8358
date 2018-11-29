@@ -9,10 +9,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Creative Colorlib SignUp Form</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="scripts/functions.js"></script>
+<!-- Firebase API  -->
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+   <script>  var config = {
+                apiKey: "AIzaSyA6iqgA93_6v6UmAtzVNApWPOvTmlbMrbQ",
+                authDomain: "ah8358-50ab9.firebaseapp.com",
+                databaseURL: "https://ah8358-50ab9.firebaseio.com",
+                projectId: "ah8358-50ab9",
+                storageBucket: "ah8358-50ab9.appspot.com",
+                messagingSenderId: "590824439259"
+              };
+			 
+			  if (!firebase.apps.length) {
+				firebase.initializeApp(config);
+				}
+              
+              var newUser = {
+            "age" : "23",
+            "email" : "junaidlodhi7@gmail.com",
+            "name" : "junaidlodhi"
+			};
+			var editUser = {
+            "age" : "29",
+            "email" : "umerasif@gmail.com",
+            "name" : "umerasif"
+			};
+			var key;
+			// CREATE A USER CODE
+			const usersRef = firebase.database().ref().child('users').push(newUser).key;
+			console.log(usersRef);
+
+			// LIST ALL USERS CODE
+			const userRef = firebase.database().ref().child('users/' + usersRef);
+				userRef.update(editUser, function(){
+   					console.log("user has been updated"); 
+ 						});
+</script>
+<!-- <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-messaging.js"></script> -->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
@@ -50,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script> 
         
 
-        abc();
+       // abc();
         </script>
 		<!-- //copyright -->
 		<ul class="colorlib-bubbles">

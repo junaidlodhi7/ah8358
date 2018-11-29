@@ -1,3 +1,5 @@
+(function () {
+           
 var abc= function() {
 
     $.ajax
@@ -15,3 +17,6 @@ var abc= function() {
 var send = function(){
         console.log("sent");
 };
+
+
+})();
